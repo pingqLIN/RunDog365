@@ -12,17 +12,17 @@
 In addition to the original cute cat, we've added three new animal characters: 
 
 ### 🐕 Great Dane
-<img src="./docs/images/great_dane. gif" width="300" alt="Great Dane animation" />
+<img src="./docs/images/great_dane.gif" width="100" alt="Great Dane animation" />
 
 A gentle giant running across your taskbar! 
 
 ### 🐶 Chihuahua
-<img src="./docs/images/chihuahua.gif" width="300" alt="Chihuahua animation" />
+<img src="./docs/images/chihuahua.gif" width="100" alt="Chihuahua animation" />
 
 A tiny but energetic companion for your desktop!
 
 ### 🦎 Frilled Lizard
-<img src="./docs/images/frilled_lizard. gif" width="300" alt="Frilled Lizard animation" />
+<img src="./docs/images/frilled_lizard.gif" width="100" alt="Frilled Lizard animation" />
 
 Watch this unique reptile sprint with its iconic frill!
 
