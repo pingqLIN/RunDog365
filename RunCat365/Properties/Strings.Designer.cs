@@ -201,6 +201,33 @@ namespace RunCat365.Properties {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Great Dane.
+        /// </summary>
+        internal static string Runner_GreatDane {
+            get {
+                return ResourceManager.GetString("Runner_GreatDane", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Chihuahua.
+        /// </summary>
+        internal static string Runner_Chihuahua {
+            get {
+                return ResourceManager.GetString("Runner_Chihuahua", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Frilled Lizard.
+        /// </summary>
+        internal static string Runner_FrilledLizard {
+            get {
+                return ResourceManager.GetString("Runner_FrilledLizard", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Parrot.
         /// </summary>
         internal static string Runner_Parrot {

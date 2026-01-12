@@ -1,0 +1,21 @@
+C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj : warning NU1503: 正在跳過還原專案 'C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj'。該專案檔可能無效或缺少還原所須的目標。 [C:\Dev\Projects\RunDog365\RunCat365.sln]
+  正在判斷要還原的專案...
+  所有專案都在最新狀態，可進行還原。
+C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj(35,3): error MSB4019: 找不到 Import 專案 "C:\Program Files\dotnet\sdk\10.0.101\Microsoft\DesktopBridge\Microsoft.DesktopBridge.props"。請確認 Import 宣告 "$(WapProjPath)\Microsoft.DesktopBridge.props" (其中評估為 "C:\Program Files\dotnet\sdk\10.0.101\\Microsoft\DesktopBridge\\Microsoft.DesktopBridge.props") 中的運算式正確，且該檔案位於磁碟中。
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(52,45): error CS0117: 'Strings' 未包含 'Runner_GreatDane' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(53,45): error CS0117: 'Strings' 未包含 'Runner_Chihuahua' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(54,49): error CS0117: 'Strings' 未包含 'Runner_FrilledLizard' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+CSC : warning WFO0003: 從 C:\Dev\Projects\RunDog365\RunCat365\App.manifest 移除高 DPI 設定，並透過Application.SetHighDpiMode API 或 'ApplicationHighDpiMode' 專案屬性進行設定 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+
+建置失敗。
+
+C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj : warning NU1503: 正在跳過還原專案 'C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj'。該專案檔可能無效或缺少還原所須的目標。 [C:\Dev\Projects\RunDog365\RunCat365.sln]
+CSC : warning WFO0003: 從 C:\Dev\Projects\RunDog365\RunCat365\App.manifest 移除高 DPI 設定，並透過Application.SetHighDpiMode API 或 'ApplicationHighDpiMode' 專案屬性進行設定 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+C:\Dev\Projects\RunDog365\WapForStore\WapForStore.wapproj(35,3): error MSB4019: 找不到 Import 專案 "C:\Program Files\dotnet\sdk\10.0.101\Microsoft\DesktopBridge\Microsoft.DesktopBridge.props"。請確認 Import 宣告 "$(WapProjPath)\Microsoft.DesktopBridge.props" (其中評估為 "C:\Program Files\dotnet\sdk\10.0.101\\Microsoft\DesktopBridge\\Microsoft.DesktopBridge.props") 中的運算式正確，且該檔案位於磁碟中。
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(52,45): error CS0117: 'Strings' 未包含 'Runner_GreatDane' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(53,45): error CS0117: 'Strings' 未包含 'Runner_Chihuahua' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+C:\Dev\Projects\RunDog365\RunCat365\Runner.cs(54,49): error CS0117: 'Strings' 未包含 'Runner_FrilledLizard' 的定義 [C:\Dev\Projects\RunDog365\RunCat365\RunCat365.csproj]
+    2 個警告
+    4 個錯誤
+
+經過時間 00:00:03.06

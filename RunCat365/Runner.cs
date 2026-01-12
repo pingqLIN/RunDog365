@@ -21,6 +21,9 @@ namespace RunCat365
         Cat,
         Parrot,
         Horse,
+        GreatDane,
+        Chihuahua,
+        FrilledLizard,
     }
 
     internal static class RunnerExtension
@@ -32,6 +35,9 @@ namespace RunCat365
                 Runner.Cat => "Cat",
                 Runner.Parrot => "Parrot",
                 Runner.Horse => "Horse",
+                Runner.GreatDane => "GreatDane",
+                Runner.Chihuahua => "Chihuahua",
+                Runner.FrilledLizard => "FrilledLizard",
                 _ => "",
             };
         }
@@ -43,6 +49,9 @@ namespace RunCat365
                 Runner.Cat => Strings.Runner_Cat,
                 Runner.Parrot => Strings.Runner_Parrot,
                 Runner.Horse => Strings.Runner_Horse,
+                Runner.GreatDane => Strings.Runner_GreatDane,
+                Runner.Chihuahua => Strings.Runner_Chihuahua,
+                Runner.FrilledLizard => Strings.Runner_FrilledLizard,
                 _ => "",
             };
         }
@@ -54,6 +63,9 @@ namespace RunCat365
                 Runner.Cat => 5,
                 Runner.Parrot => 10,
                 Runner.Horse => 14,
+                Runner.GreatDane => 5,
+                Runner.Chihuahua => 5,
+                Runner.FrilledLizard => 8,
                 _ => 0,
             };
         }

@@ -1,21 +1,32 @@
-# RunCat 365
+# RunDog365 🐕
 
-**A cute running cat animation on your Windows Taskbar.**
+**A cute running animal animation on your Windows Taskbar.**
 
-> [!CAUTION]
->
-> - This project is for Windows, so we do not accept inquiries about macOS version.
-> - We do not accept issues or pull requests in languages other than English.
-> - Issues that do not follow the Issue Template will be closed without question.
+> [! NOTE]
+> Special thanks to [@Kyome22](https://github.com/Kyome22) for the original [RunCat365](https://github.com/Kyome22/RunCat365) project. This version adds new animal runners. 
 
-[![Github issues](https://img.shields.io/github/issues/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/issues)
-[![Github forks](https://img.shields.io/github/forks/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/network/members)
-[![Github stars](https://img.shields.io/github/stars/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/stargazers)
-[![Top language](https://img.shields.io/github/languages/top/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/)
-[![Release](https://img.shields.io/github/v/release/Kyome22/RunCat365)]()
-[![Github license](https://img.shields.io/github/license/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/)
+---
 
-`C#` `Win32` `.NET 9.0` `Visual Studio` `RunCat`
+## 🆕 New Animal Characters
+
+In addition to the original cute cat, we've added three new animal characters: 
+
+### 🐕 Great Dane
+<img src="./docs/images/great_dane. gif" width="300" alt="Great Dane animation" />
+
+A gentle giant running across your taskbar! 
+
+### 🐶 Chihuahua
+<img src="./docs/images/chihuahua.gif" width="300" alt="Chihuahua animation" />
+
+A tiny but energetic companion for your desktop!
+
+### 🦎 Frilled Lizard
+<img src="./docs/images/frilled_lizard. gif" width="300" alt="Frilled Lizard animation" />
+
+Watch this unique reptile sprint with its iconic frill!
+
+---
 
 ## Demo
 
@@ -27,14 +38,35 @@
 
 ## Installation
 
-RunCat 365 is available for installation on the Microsoft Store.
-
 - Requirement: Windows 10 version 19041.0 or higher
-- Microsoft Store: https://apps.microsoft.com/detail/9nw5lpnvwfwj
-- Language: English, Japanese
+- Language:  English, Japanese
 
-## Contributors
+`C#` `Win32` `.NET 9.0` `Visual Studio` `RunCat`
+
+---
+
+## 📌 Original Project
+
+This project is based on the following original repository:
+
+| Item | Link |
+|------|------|
+| 🔗 Original Repository | [Kyome22/RunCat365](https://github.com/Kyome22/RunCat365) |
+| 👤 Original Author | [@Kyome22](https://github.com/Kyome22) |
+| 🏪 Microsoft Store | https://apps.microsoft.com/detail/9nw5lpnvwfwj |
+
+[![Github issues](https://img.shields.io/github/issues/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/issues)
+[![Github stars](https://img.shields.io/github/stars/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/stargazers)
+[![Github license](https://img.shields.io/github/license/Kyome22/RunCat365)](https://github.com/Kyome22/RunCat365/)
+
+## Original Contributors
 
 <a href="https://github.com/Kyome22/RunCat365/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Kyome22/RunCat365" />
 </a>
+
+---
+
+## License
+
+This project is licensed under the [Apache License 2.0](https://github.com/Kyome22/RunCat365/blob/main/LICENSE), same as the original project. 

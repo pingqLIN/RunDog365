@@ -409,4 +409,112 @@
   <data name="light_road_sprout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\light\light_road_sprout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dark_greatdane_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\dark_greatdane_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_greatdane_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\dark_greatdane_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_greatdane_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\dark_greatdane_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_greatdane_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\dark_greatdane_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_greatdane_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\dark_greatdane_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_greatdane_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\light_greatdane_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_greatdane_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\light_greatdane_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_greatdane_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\light_greatdane_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_greatdane_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\light_greatdane_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_greatdane_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\greatdane\light_greatdane_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_chihuahua_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\dark_chihuahua_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_chihuahua_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\dark_chihuahua_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_chihuahua_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\dark_chihuahua_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_chihuahua_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\dark_chihuahua_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_chihuahua_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\dark_chihuahua_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_chihuahua_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\light_chihuahua_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_chihuahua_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\light_chihuahua_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_chihuahua_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\light_chihuahua_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_chihuahua_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\light_chihuahua_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_chihuahua_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\chihuahua\light_chihuahua_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_0.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_5.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_6.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_frilledlizard_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\dark_frilledlizard_7.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_5.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_6.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_frilledlizard_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\runners\frilledlizard\light_frilledlizard_7.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
