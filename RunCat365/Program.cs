@@ -25,10 +25,10 @@ namespace RunCat365
         [STAThread]
         static void Main()
         {
-            #if DEBUG
+#if DEBUG
             // Specify language manually.
             CultureInfo.CurrentUICulture = SupportedLanguage.English.GetDefaultCultureInfo();
-            #endif
+#endif
 
             // Terminate RunCat365 if there's any existing instance.
             using var procMutex = new Mutex(true, "_RUNCAT_MUTEX", out var result);
@@ -53,6 +53,7 @@ namespace RunCat365
         private const int FETCH_COUNTER_SIZE = 5;
         private const int ANIMATE_TIMER_DEFAULT_INTERVAL = 200;
         private readonly CPURepository cpuRepository;
+        private readonly GPURepository gpuRepository;
         private readonly MemoryRepository memoryRepository;
         private readonly StorageRepository storageRepository;
         private readonly NetworkRepository networkRepository;
@@ -63,6 +64,7 @@ namespace RunCat365
         private Runner runner = Runner.Cat;
         private Theme manualTheme = Theme.System;
         private FPSMaxLimit fpsMaxLimit = FPSMaxLimit.FPS40;
+        private SpeedSource speedSource = SpeedSource.CPU;
         private int fetchCounter = 5;
 
         public RunCat365ApplicationContext()
@@ -71,14 +73,18 @@ namespace RunCat365
             _ = Enum.TryParse(UserSettings.Default.Runner, out runner);
             _ = Enum.TryParse(UserSettings.Default.Theme, out manualTheme);
             _ = Enum.TryParse(UserSettings.Default.FPSMaxLimit, out fpsMaxLimit);
+            _ = Enum.TryParse(UserSettings.Default.SpeedSource, out speedSource);
 
             SystemEvents.UserPreferenceChanged += new UserPreferenceChangedEventHandler(UserPreferenceChanged);
 
             cpuRepository = new CPURepository();
+            gpuRepository = new GPURepository();
             memoryRepository = new MemoryRepository();
             storageRepository = new StorageRepository();
-            launchAtStartupManager = new LaunchAtStartupManager();
             networkRepository = new NetworkRepository();
+            launchAtStartupManager = new LaunchAtStartupManager();
+
+            ResolveSpeedSource();
 
             contextMenuManager = new ContextMenuManager(
                 () => runner,
@@ -86,6 +92,9 @@ namespace RunCat365
                 () => GetSystemTheme(),
                 () => manualTheme,
                 t => ChangeManualTheme(t),
+                () => speedSource,
+                s => ChangeSpeedSource(s),
+                s => IsSpeedSourceAvailable(s),
                 () => fpsMaxLimit,
                 f => ChangeFPSMaxLimit(f),
                 () => launchAtStartupManager.GetStartup(),
@@ -108,7 +117,7 @@ namespace RunCat365
             fetchTimer.Tick += new EventHandler(FetchTick);
             fetchTimer.Start();
 
-            ShowBalloonTip();
+            ShowBalloonTipIfNeeded();
         }
 
         private static Theme GetSystemTheme()
@@ -121,11 +130,34 @@ namespace RunCat365
             return (int)value == 0 ? Theme.Dark : Theme.Light;
         }
 
-        private void ShowBalloonTip()
+        private bool IsSpeedSourceAvailable(SpeedSource speedSource)
         {
-            if (UserSettings.Default.FirstLaunch)
+            return speedSource switch
             {
-                contextMenuManager.ShowBalloonTip();
+                SpeedSource.CPU => true,
+                SpeedSource.GPU => gpuRepository.IsAvailable,
+                SpeedSource.Memory => true,
+                _ => false,
+            };
+        }
+
+        private void ResolveSpeedSource()
+        {
+            if (!IsSpeedSourceAvailable(speedSource))
+            {
+                ChangeSpeedSource(SpeedSource.CPU);
+            }
+        }
+
+        private void ShowBalloonTipIfNeeded()
+        {
+            if (!cpuRepository.IsAvailable)
+            {
+                contextMenuManager.ShowBalloonTip(BalloonTipType.CPUInfoUnavailable);
+            }
+            else if (UserSettings.Default.FirstLaunch)
+            {
+                contextMenuManager.ShowBalloonTip(BalloonTipType.AppLaunched);
                 UserSettings.Default.FirstLaunch = false;
                 UserSettings.Default.Save();
             }
@@ -170,6 +202,13 @@ namespace RunCat365
             UserSettings.Default.Save();
         }
 
+        private void ChangeSpeedSource(SpeedSource s)
+        {
+            speedSource = s;
+            UserSettings.Default.SpeedSource = speedSource.ToString();
+            UserSettings.Default.Save();
+        }
+
         private void ChangeFPSMaxLimit(FPSMaxLimit f)
         {
             fpsMaxLimit = f;
@@ -182,45 +221,64 @@ namespace RunCat365
             contextMenuManager.AdvanceFrame();
         }
 
-        private void FetchSystemInfo(
-            CPUInfo cpuInfo,
-            MemoryInfo memoryInfo,
-            List<StorageInfo> storageValue,
-            NetworkInfo networkInfo
-        )
+        private string GetInfoDescription(CPUInfo cpuInfo, GPUInfo? gpuInfo, MemoryInfo memoryInfo)
         {
-            contextMenuManager.SetNotifyIconText(cpuInfo.GetDescription());
+            return speedSource switch
+            {
+                SpeedSource.CPU => cpuInfo.GetDescription(),
+                SpeedSource.GPU => gpuInfo?.GetDescription() ?? "",
+                SpeedSource.Memory => memoryInfo.GetDescription(),
+                _ => "",
+            };
+        }
+
+        private int CalculateInterval(CPUInfo cpuInfo, GPUInfo? gpuInfo, MemoryInfo memoryInfo)
+        {
+            var load = speedSource switch
+            {
+                SpeedSource.CPU => cpuInfo.Total,
+                SpeedSource.GPU => gpuInfo?.Maximum ?? 0f,
+                SpeedSource.Memory => memoryInfo.MemoryLoad,
+                _ => 0f,
+            };
+            var speed = (float)Math.Max(1.0f, (load / 5.0f) * fpsMaxLimit.GetRate());
+            return (int)(500.0f / speed);
+        }
+
+        private int FetchSystemInfo()
+        {
+            var cpuInfo = cpuRepository.Get();
+            var gpuInfo = gpuRepository.Get();
+            var memoryInfo = memoryRepository.Get();
+            var storageInfo = storageRepository.Get();
+            var networkInfo = networkRepository.Get();
+
+            contextMenuManager.SetNotifyIconText(GetInfoDescription(cpuInfo, gpuInfo, memoryInfo));
 
             var systemInfoValues = new List<string>();
             systemInfoValues.AddRange(cpuInfo.GenerateIndicator());
+            if (gpuInfo.HasValue)
+            {
+                systemInfoValues.AddRange(gpuInfo.Value.GenerateIndicator());
+            }
             systemInfoValues.AddRange(memoryInfo.GenerateIndicator());
-            systemInfoValues.AddRange(storageValue.GenerateIndicator());
+            systemInfoValues.AddRange(storageInfo.GenerateIndicator());
             systemInfoValues.AddRange(networkInfo.GenerateIndicator());
             contextMenuManager.SetSystemInfoMenuText(string.Join("\n", [.. systemInfoValues]));
-        }
 
-        private int CalculateInterval(float cpuTotalValue)
-        {
-            // Range of interval: 25-500 (ms) = 2-40 (fps)
-            var speed = (float)Math.Max(1.0f, (cpuTotalValue / 5.0f) * fpsMaxLimit.GetRate());
-            return (int)(500.0f / speed);
+            return CalculateInterval(cpuInfo, gpuInfo, memoryInfo);
         }
 
         private void FetchTick(object? state, EventArgs e)
         {
             cpuRepository.Update();
+            gpuRepository.Update();
             fetchCounter += 1;
             if (fetchCounter < FETCH_COUNTER_SIZE) return;
             fetchCounter = 0;
-
-            var cpuInfo = cpuRepository.Get();
-            var memoryInfo = memoryRepository.Get();
-            var storageInfo = storageRepository.Get();
-            var networkInfo = networkRepository.Get();
-            FetchSystemInfo(cpuInfo, memoryInfo, storageInfo, networkInfo);
-
+            var interval = FetchSystemInfo();
             animateTimer.Stop();
-            animateTimer.Interval = CalculateInterval(cpuInfo.Total);
+            animateTimer.Interval = interval;
             animateTimer.Start();
         }
 

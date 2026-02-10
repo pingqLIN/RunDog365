@@ -66,6 +66,16 @@ namespace RunCat365.Properties {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to High Score.
+        /// </summary>
+        internal static string Game_HighScore
+        {
+            get
+            {
+                return ResourceManager.GetString("Game_HighScore", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Press space to play..
         /// </summary>
         internal static string Game_PressSpaceToPlay {
@@ -83,6 +93,16 @@ namespace RunCat365.Properties {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to New Record.
+        /// </summary>
+        internal static string Game_NewRecord
+        {
+            get
+            {
+                return ResourceManager.GetString("Game_NewRecord", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Endless Game.
         /// </summary>
@@ -155,6 +175,12 @@ namespace RunCat365.Properties {
             }
         }
 
+        internal static string Menu_SpeedSource {
+            get {
+                return ResourceManager.GetString("Menu_SpeedSource", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
@@ -170,6 +196,15 @@ namespace RunCat365.Properties {
         internal static string Message_AppLaunched {
             get {
                 return ResourceManager.GetString("Message_AppLaunched", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to get CPU usage. Unable to update running speed..
+        /// </summary>
+        internal static string Message_CPUUsageUnavailable {
+            get {
+                return ResourceManager.GetString("Message_CPUUsageUnavailable", resourceCulture);
             }
         }
 
@@ -386,6 +421,24 @@ namespace RunCat365.Properties {
         internal static string SystemInfo_Received {
             get {
                 return ResourceManager.GetString("SystemInfo_Received", resourceCulture);
+            }
+        }
+
+        internal static string SystemInfo_GPU {
+            get {
+                return ResourceManager.GetString("SystemInfo_GPU", resourceCulture);
+            }
+        }
+
+        internal static string SystemInfo_Average {
+            get {
+                return ResourceManager.GetString("SystemInfo_Average", resourceCulture);
+            }
+        }
+
+        internal static string SystemInfo_Maximum {
+            get {
+                return ResourceManager.GetString("SystemInfo_Maximum", resourceCulture);
             }
         }
     }

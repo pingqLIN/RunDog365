@@ -13,6 +13,9 @@
 //    limitations under the License.
 
 using RunCat365.Properties;
+using System.Collections;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using FormsTimer = System.Windows.Forms.Timer;
 
 namespace RunCat365
@@ -25,9 +28,12 @@ namespace RunCat365
         private GameStatus status = GameStatus.NewGame;
         private Cat cat = new Cat.Running(Cat.Running.Frame.Frame0);
         private readonly List<Road> roads = [];
+        private readonly Dictionary<string, Bitmap> catIcons = [];
+        private readonly Dictionary<string, Bitmap> roadIcons = [];
         private int counter = 0;
         private int limit = 5;
         private int score = 0;
+        private int highScore = UserSettings.Default.HighScore;
         private bool isJumpRequested = false;
         private readonly bool isAutoPlay = false;
 
@@ -43,6 +49,34 @@ namespace RunCat365
             Text = Strings.Window_EndlessGame;
             Icon = Resources.AppIcon;
             BackColor = systemTheme == Theme.Light ? Color.Gainsboro : Color.Gray;
+
+            var rm = Resources.ResourceManager;
+            var rs = rm.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            if (rs is not null)
+            {
+                var catRegex = new Regex(@"^cat_.*_.*$");
+                var color = systemTheme.GetContrastColor();
+                foreach (DictionaryEntry entry in rs)
+                {
+                    var key = entry.Key.ToString();
+                    if (string.IsNullOrEmpty(key)) continue;
+
+                    if (catRegex.IsMatch(key))
+                    {
+                        if (entry.Value is Bitmap icon)
+                        {
+                            catIcons.Add(key, systemTheme == Theme.Light ? new Bitmap(icon) : icon.Recolor(color));
+                        }
+                    }
+                    else if (key.StartsWith("road"))
+                    {
+                        if (entry.Value is Bitmap icon)
+                        {
+                            roadIcons.Add(key, systemTheme == Theme.Light ? new Bitmap(icon) : icon.Recolor(color));
+                        }
+                    }
+                }
+            }
 
             Paint += RenderScene;
 
@@ -64,6 +98,11 @@ namespace RunCat365
             base.OnFormClosing(e);
             timer.Stop();
             timer.Dispose();
+
+            foreach (var bitmap in catIcons.Values) bitmap.Dispose();
+            foreach (var bitmap in roadIcons.Values) bitmap.Dispose();
+            catIcons.Clear();
+            roadIcons.Clear();
         }
 
         private void Initialize()
@@ -103,6 +142,7 @@ namespace RunCat365
             if (firstRoad == Road.Sprout)
             {
                 score += 1;
+                highScore = Math.Max(score, highScore);
             }
             counter = counter > 0 ? counter - 1 : limit - 1;
             if (counter == 0)
@@ -203,8 +243,7 @@ namespace RunCat365
         private void RenderScene(object? sender, PaintEventArgs e)
         {
             var rm = Resources.ResourceManager;
-            var prefix = systemTheme.GetString();
-            var textColor = systemTheme == Theme.Light ? Color.Black : Color.White;
+            var textColor = systemTheme.GetContrastColor();
             var g = e.Graphics;
 
             using (Font font15 = new("Consolas", 15))
@@ -215,22 +254,21 @@ namespace RunCat365
                     Alignment = StringAlignment.Far,
                     LineAlignment = StringAlignment.Center
                 };
-                g.DrawString($"{Strings.Game_Score}: {score}", font15, brush, new Rectangle(20, 0, 560, 50), stringFormat);
+                g.DrawString($"{Strings.Game_HighScore}: {highScore}", font15, brush, new Rectangle(20, 0, 560, 50), stringFormat);
+                g.DrawString($"{Strings.Game_Score}: {score}", font15, brush, new Rectangle(20, 30, 560, 50), stringFormat);
             }
 
             roads.Take(20).Select((road, index) => new { road, index }).ToList().ForEach(
                 item =>
                 {
-                    var fileName = $"{prefix}_road_{item.road.GetString()}".ToLower();
-                    using Bitmap? image = rm.GetObject(fileName) as Bitmap;
-                    if (image is null) return;
+                    var fileName = $"road_{item.road.GetString()}".ToLower();
+                    if (!roadIcons.TryGetValue(fileName, out Bitmap? image)) return;
                     g.DrawImage(image, new Rectangle(item.index * 30, 200, 30, 50));
                 }
             );
 
-            var fileName = $"{prefix}_cat_{cat.GetString()}".ToLower();
-            using Bitmap? image = rm.GetObject(fileName) as Bitmap;
-            if (image is null) return;
+            var fileName = $"cat_{cat.GetString()}".ToLower();
+            if (!catIcons.TryGetValue(fileName, out Bitmap? image)) return;
             g.DrawImage(image, new Rectangle(120, 130, 120, 100));
 
             if (status != GameStatus.Playing)
@@ -243,7 +281,15 @@ namespace RunCat365
                 var message = Strings.Game_PressSpaceToPlay;
                 if (status == GameStatus.GameOver)
                 {
-                    message = $"{Strings.Game_GameOver}\n{message}";
+                    if (score >= highScore)
+                    {
+                        SaveRecord(score);
+                        message = $"{Strings.Game_NewRecord}!!\n{message}";
+                    }
+                    else
+                    {
+                        message = $"{Strings.Game_GameOver}\n{message}";
+                    }
                 }
                 var stringFormat = new StringFormat
                 {
@@ -252,6 +298,11 @@ namespace RunCat365
                 };
                 g.DrawString(message, font18, brush, new Rectangle(0, 0, 600, 250), stringFormat);
             }
+        }
+        private void SaveRecord(int score)
+        {
+            UserSettings.Default.HighScore = score;
+            UserSettings.Default.Save();
         }
     }
 
